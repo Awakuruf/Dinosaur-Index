@@ -14,9 +14,11 @@ A list of *functions* you can do with this Index:
 - Filter the specific time period the specific dinosaur lived in (Triassic, Jurassic and Cretaceous.)
 - Filter through Dinosaur types to search for variants of specific dinosaurs
 - View the family tree of the speicfic dinosaur and it's ancestors!
+- Add your newly discovered dinosaur into the index!
 
 Gives you in-depth information about the specific dinosaur in the dino page! Which includes...
 - 
+- The full name of the dinosaur.
 - Short description of what kind of dinosaur it was!
 - What family of dinosaur it belongs to.
 - Size
@@ -30,3 +32,16 @@ This index can be used from anyone that are simply interested in dinosaurs that 
 Ever since I was little, I've always been interested in these mysterious creature that roamed around earth 650 million years ago. I've been to multiple fossil sites. This includes going on a Centrosaurus (Type of dinosaur) fossil expedition with the infamous Drumheller's Royal Tyrrel Musesum expedition crew. With refinement, I believe this index can be used to literally anyone interested in dinosaurs and prehistoric earth!
 
 **What are you waiting for? It's time to go back to the *past!***
+
+
+
+
+
+User Stories
+-
+- As a user I want to add the new dinosaur name into the existing list of dinosaurs.
+- As a user I want to add this dinosaur into the family tree of dinosaur it belongs to. 
+- As a user I want to filter the index by what kind of diet this particular dinosaur had.
+- As a user I want to view the time periods to see which era this dinosaur belonged to.
+- As a user I want to add it's size to this dinosaur.
+- As a user I want to add its full description to this dinosaur.
