@@ -56,4 +56,9 @@ class DinosaurTest {
         discoveredDinosaur.addDiet("Herbivore");
         assertEquals("Herbivore", discoveredDinosaur.getDiet());
     }
+
+    @Test
+    void testName(){
+        assertFalse((discoveredDinosaur.getName()).isEmpty());
+    }
 }

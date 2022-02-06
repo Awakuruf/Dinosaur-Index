@@ -118,6 +118,7 @@ public class Dinosaur {
         System.out.println("Location of Discovery:" + location);
         System.out.println("Family Tree of Dinosaur: Unknown");
         System.out.println("Diet:" + diet);
+        System.out.println("Mesozoic Period: " + era);
         System.out.println("Is an Origin Dinosaur of the tree:" + isOriginDinosaur(nameOfDinosaur));
     }
 
