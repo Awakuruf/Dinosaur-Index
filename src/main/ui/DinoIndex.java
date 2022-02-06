@@ -143,7 +143,7 @@ public class DinoIndex {
         giga.addLocationFound("South America");
         giga.addDiet("Carnivore");
         cretaceous.addToEraGroup(giga, "Jurassic");
-        carnivore.addToDietGroup(giga, "Herbivore");
+        carnivore.addToDietGroup(giga, "Carnivore");
         southAmerica.addToLocationGroup(giga, "South America");
         input = new Scanner(System.in);
         input.useDelimiter("\n");

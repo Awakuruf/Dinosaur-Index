@@ -39,9 +39,9 @@ Ever since I was little, I've always been interested in these mysterious creatur
 
 User Stories
 -
-- As a user I want to add the new dinosaur name into the existing list of dinosaurs.
-- As a user I want to add this dinosaur into the family tree of dinosaur it belongs to. 
-- As a user I want to filter the index by what kind of diet this particular dinosaur had.
-- As a user I want to view the time periods to see which era this dinosaur belonged to.
-- As a user I want to add it's size to this dinosaur.
+- As a user I want to add a new specie of dinosaur name into Dinosaur.
+- As a user I want to add this Dinosaur to the group of Asian dinosaurs as it was discovered in Asia.
+- As a user I want to add this Dinosaur to the group of Carnivores as it ate other dinosaurs.
+- As a user I want to filter all the Dinosaur in the index by Carnivores to make sure this dinosaur was added in the right category.
+- As a user I want to add this Dinosaur to the group of Jurassic dinosaurs as it lived in the Jurassic Period.
 - As a user I want to add its full description to this dinosaur.
