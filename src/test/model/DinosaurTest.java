@@ -54,6 +54,16 @@ class DinosaurTest {
         assertFalse(discoveredDinosaur.isOriginDinosaur("Parasaurorophs"));
         discoveredDinosaur.isOriginDinosaur("Tyrannosaurus");
         assertTrue(discoveredDinosaur.isOriginDinosaur("Tyrannosaurus"));
+        discoveredDinosaur.isOriginDinosaur("Brotonsaurus");
+        assertTrue(discoveredDinosaur.isOriginDinosaur("Brontosaurus"));
+        discoveredDinosaur.isOriginDinosaur("Triceratops");
+        assertTrue(discoveredDinosaur.isOriginDinosaur("Triceratops"));
+        discoveredDinosaur.isOriginDinosaur("Troodon");
+        assertTrue(discoveredDinosaur.isOriginDinosaur("Troodon"));
+        discoveredDinosaur.isOriginDinosaur("Hadrosaurus");
+        assertTrue(discoveredDinosaur.isOriginDinosaur("Hadrosaurus"));
+        discoveredDinosaur.isOriginDinosaur("Stegosaurus");
+        assertTrue(discoveredDinosaur.isOriginDinosaur("Stegosaurus"));
         discoveredDinosaur.isOriginDinosaur("Albertosaurus");
         assertFalse(discoveredDinosaur.isOriginDinosaur("Albertosaurus"));
     }
@@ -63,6 +73,12 @@ class DinosaurTest {
         diet = new DietType();
         discoveredDinosaur.addDiet("Herbivore");
         assertEquals("Herbivore", discoveredDinosaur.getDiet());
+        diet = new DietType();
+        discoveredDinosaur.addDiet("Carnivore");
+        assertEquals("Carnivore", discoveredDinosaur.getDiet());
+        diet = new DietType();
+        discoveredDinosaur.addDiet("Omnivore");
+        assertEquals("Omnivore", discoveredDinosaur.getDiet());
     }
 
     @Test
@@ -92,6 +108,31 @@ class DinosaurTest {
         List<Dinosaur> diet1 = testDiet.returnDiet("Carnivore");
         assertEquals(testDinosaur, diet1.get(0));
         assertEquals(1, diet1.size());
+        testDinosaur = new Dinosaur("Daspletosaurus");
+        testDiet.addToDietGroup(testDinosaur,"Carnivore");
+        diet1 = testDiet.returnDiet("Carnivore");
+        assertEquals(testDinosaur, diet1.get(1));
+        assertEquals(2, diet1.size());
+
+        testDiet = new DietType();
+        testDinosaur = new Dinosaur("Parasaur");
+        testDiet.addToDietGroup(testDinosaur,"Herbivore");
+        List<Dinosaur> diet2 = testDiet.returnDiet("Herbivore");
+        assertEquals(testDinosaur, diet2.get(0));
+        assertEquals(1, diet2.size());
+
+        testDiet = new DietType();
+        testDinosaur = new Dinosaur("Oviraptor");
+        testDiet.addToDietGroup(testDinosaur,"Omnivore");
+        List<Dinosaur> diet3 = testDiet.returnDiet("Omnivore");
+        assertEquals(testDinosaur, diet3.get(0));
+        assertEquals(1, diet3.size());
+
+        testDiet = new DietType();
+        testDinosaur = new Dinosaur("Microraptor");
+        testDiet.addToDietGroup(testDinosaur,"Scavenger");
+        List<Dinosaur> diet4 = testDiet.returnDiet("Scavenger");
+        assertEquals(null, diet4);
     }
 
     @Test
@@ -118,6 +159,11 @@ class DinosaurTest {
         location1 = testLocation.returnLocationOfDiscovery("Africa");
         assertEquals(testDinosaur, location1.get(2));
         assertEquals(3, location1.size());
+        testDinosaur = new Dinosaur("Acrocanthosuarus");
+        testLocation.addToLocationGroup(testDinosaur,"Africa");
+        location1 = testLocation.returnLocationOfDiscovery("Africa");
+        assertEquals(testDinosaur, location1.get(3));
+        assertEquals(4, location1.size());
 
 
         testLocation = new Location();
@@ -137,6 +183,26 @@ class DinosaurTest {
         List<Dinosaur> location4 = testLocation.returnLocationOfDiscovery("Europe");
         assertEquals(testDinosaur, location4.get(0));
         assertEquals(1, location4.size());
+
+        testLocation = new Location();
+        testDinosaur = new Dinosaur("Yutyrannus");
+        testLocation.addToLocationGroup(testDinosaur,"South America");
+        List<Dinosaur> location5 = testLocation.returnLocationOfDiscovery("South America");
+        assertEquals(testDinosaur, location5.get(0));
+        assertEquals(1, location5.size());
+
+        testLocation = new Location();
+        testDinosaur = new Dinosaur("Nodosuarus");
+        testLocation.addToLocationGroup(testDinosaur,"Australia");
+        List<Dinosaur> location7 = testLocation.returnLocationOfDiscovery( "Australia");
+        assertEquals(testDinosaur, location7.get(0));
+        assertEquals(1, location5.size());
+
+        testLocation = new Location();
+        testDinosaur = new Dinosaur("Cryolophosuaurus");
+        testLocation.addToLocationGroup(testDinosaur,"Antarctica");
+        List<Dinosaur> location6 = testLocation.returnLocationOfDiscovery("Antarctica");
+        assertEquals(null, location6);
     }
 
     @Test
@@ -153,6 +219,31 @@ class DinosaurTest {
         List<Dinosaur> era1 = testEra.returnMesozoicEra("Jurassic");
         assertEquals(testDinosaur, era1.get(0));
         assertEquals(1, era1.size());
+        testDinosaur = new Dinosaur("Camerasaurus");
+        testEra.addToEraGroup(testDinosaur,"Jurassic");
+        era1 = testEra.returnMesozoicEra("Jurassic");
+        assertEquals(testDinosaur, era1.get(1));
+        assertEquals(2, era1.size());
+
+        testEra = new MesozoicEra();
+        testDinosaur = new Dinosaur("Allosaurus");
+        testEra.addToEraGroup(testDinosaur,"Cretaceous");
+        List<Dinosaur> era2 = testEra.returnMesozoicEra("Cretaceous");
+        assertEquals(testDinosaur, era2.get(0));
+        assertEquals(1, era2.size());
+
+        testEra = new MesozoicEra();
+        testDinosaur = new Dinosaur("Lystrosaurus");
+        testEra.addToEraGroup(testDinosaur,"Triassic");
+        List<Dinosaur> era3 = testEra.returnMesozoicEra("Triassic");
+        assertEquals(testDinosaur, era3.get(0));
+        assertEquals(1, era3.size());
+
+        testEra = new MesozoicEra();
+        testDinosaur = new Dinosaur("Doromaeosaurus");
+        testEra.addToEraGroup(testDinosaur,"22th Century");
+        List<Dinosaur> era4 = testEra.returnMesozoicEra("22th Century");
+        assertEquals(null, era4);
     }
 
 
