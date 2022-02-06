@@ -83,23 +83,9 @@ public class Dinosaur {
     // REQUIRES: The string must not be empty.
     // MODIFIES: this
     // EFFECTS: Add what kind of diet the dinosaur had
-    public void addDiet(String typeofdiet) {
-        this.diet = typeofdiet;
+    public void addDiet(String typeOfDiet) {
+        this.diet = typeOfDiet;
     }
-
-    /* // REQUIRES: The string must not be empty and the originDinosaur must be the name of originDinosaur
-    // EFFECTS: makes a family tree if the given dinosaur is an origin dinosaur
-    public ArrayList<String> makeFamilyTree(String originDinosaur) {
-        nameOfOrigin = originDinosaur;
-        this.dinosaurTree = new ArrayList<String>();
-    } */
-
-    /* // REQUIRES: The string must not be empty and the dinosaur must be the origin dinosaur.
-    // EFFECTS: Filters and returns all the dinosaurs in the index to
-    // those that originate from the input dinosaur.
-    public List<Dinosaur> filterByFamilyTree(Dinosaur nameOfDino) {
-        return null; //STUB
-    } */
 
     // REQUIRES: The string must not be empty.
     // MODIFIES: this
@@ -111,7 +97,7 @@ public class Dinosaur {
     // REQUIRES: The dinosaur page must be created.
     // MODIFIES: this
     // EFFECTS: Returns all the information under the designated dinosaur.
-    public void returnDinosaurPage() {
+    public String returnDinosaurPage() {
         System.out.println("Name:" + nameOfDinosaur);
         System.out.println("Description:" + description);
         System.out.println("Size:" + size);
@@ -120,6 +106,7 @@ public class Dinosaur {
         System.out.println("Diet:" + diet);
         System.out.println("Mesozoic Period: " + era);
         System.out.println("Is an Origin Dinosaur of the tree:" + isOriginDinosaur(nameOfDinosaur));
+        return nameOfDinosaur;
     }
 
     //EFFECT: Getter for Description

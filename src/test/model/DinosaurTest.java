@@ -10,7 +10,7 @@ class DinosaurTest {
     private Dinosaur discoveredDinosaur;
     private Location location;
     private MesozoicEra era;
-    private DietType diet;
+    private DietTypeTest diet;
 
     @BeforeEach
     void runBefore() {
@@ -32,6 +32,8 @@ class DinosaurTest {
     void testAddSize() {
         discoveredDinosaur.addSize(12);
         assertEquals(12, discoveredDinosaur.getSize());
+        discoveredDinosaur.addSize(13);
+        assertEquals(13, discoveredDinosaur.getSize());
     }
 
     @Test
@@ -52,13 +54,21 @@ class DinosaurTest {
 
     @Test
     void testAddDiet() {
-        diet = new DietType();
+        diet = new DietTypeTest();
         discoveredDinosaur.addDiet("Herbivore");
         assertEquals("Herbivore", discoveredDinosaur.getDiet());
     }
 
     @Test
-    void testName(){
-        assertFalse((discoveredDinosaur.getName()).isEmpty());
+    void testAddEra() {
+        era = new MesozoicEra();
+        discoveredDinosaur.addEra("Cretaceous");
+        assertEquals("Cretaceous", discoveredDinosaur.getEra());
+    }
+
+    @Test
+    void testGetDinoPage() {
+        discoveredDinosaur.returnDinosaurPage();
+        assertEquals("Albertosaurus", discoveredDinosaur.returnDinosaurPage());
     }
 }

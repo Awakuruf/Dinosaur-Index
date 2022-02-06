@@ -34,13 +34,6 @@ public class MesozoicEra {
         }
     }
 
-    /* // REQUIRES: The string must not be empty and the dinosaur must be the origin dinosaur.
-    // EFFECTS: Filters and returns all the dinosaurs in the index to
-    // those that originate from the input dinosaur.
-    public List<Dinosaur> filterByLocation(Location nameOfLocation) {
-        return null; //STUB
-    } */
-
     public List<Dinosaur> returnMesozoicEra(String era) {
         if (era.equals("Triassic")) {
             System.out.println("List of Triassic Dinosaurs: " + (triassic.get(0)).getName());

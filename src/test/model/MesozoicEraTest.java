@@ -27,5 +27,6 @@ public class MesozoicEraTest {
         testEra.addToEraGroup(testDinosaur,"Cretaceous");
         List<Dinosaur> era1 = testEra.returnMesozoicEra("Cretaceous");
         assertEquals(testDinosaur, era1.get(0));
+        assertEquals(1, era1.size());
     }
 }
