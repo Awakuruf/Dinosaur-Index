@@ -30,34 +30,6 @@ public class Dinosaur {
         era = null;
     }
 
-    // REQUIRES: The string must not be empty.
-    // MODIFIES: this
-    // EFFECTS: Returns true if the Dinosaur is the origin dinosaur of the family tree and creates
-    // a list of dinosaurs that represents its family tree.
-    public Boolean isOriginDinosaur(String name) {
-        if (name.equals("Tyrannosaurus")) {
-            ArrayList<Dinosaur> trexFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else if (name.equals("Brontosaurus")) {
-            ArrayList<Dinosaur> brontoFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else if (name.equals("Stegosaurus")) {
-            ArrayList<Dinosaur> stegoFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else if (name.equals("Triceratops")) {
-            ArrayList<Dinosaur> trikeFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else if (name.equals("Troodon")) {
-            ArrayList<Dinosaur> troodonFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else if (name.equals("Hadrosaurus")) {
-            ArrayList<Dinosaur> hardosaurusFamilyLine = new ArrayList<Dinosaur>();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     // REQUIRES: The string must not be empty and this dinosaur cannot be the origin dinosaur.
     // MODIFIES: this
     // EFFECTS: Adds the description of the dinosaur such as its trait and behaviour.
@@ -94,7 +66,7 @@ public class Dinosaur {
         this.era = era;
     }
 
-    // REQUIRES: The dinosaur page must be created.
+    // REQUIRES: The dinosaur must exist in the index before called.
     // MODIFIES: this
     // EFFECTS: Returns all the information under the designated dinosaur.
     public String returnDinosaurPage() {
@@ -105,7 +77,6 @@ public class Dinosaur {
         System.out.println("Family Tree of Dinosaur: Unknown");
         System.out.println("Diet:" + diet);
         System.out.println("Mesozoic Period: " + era);
-        System.out.println("Is an Origin Dinosaur of the tree:" + isOriginDinosaur(nameOfDinosaur));
         return nameOfDinosaur;
     }
 

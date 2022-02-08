@@ -39,9 +39,9 @@ Ever since I was little, I've always been interested in these mysterious creatur
 
 User Stories
 -
-- As a user I want to add a new specie of dinosaur name into Dinosaur.
+- As a user I want to add a new specie of dinosaur name into the List of Dinosaur.
 - As a user I want to add this Dinosaur to the group of Asian dinosaurs as it was discovered in Asia.
 - As a user I want to add this Dinosaur to the group of Carnivores as it ate other dinosaurs.
 - As a user I want to filter all the Dinosaur in the index by Carnivores to make sure this dinosaur was added in the right category.
 - As a user I want to add this Dinosaur to the group of Jurassic dinosaurs as it lived in the Jurassic Period.
-- As a user I want to add its full description to this dinosaur.
+- As a user I want to view all the added information of this Dinosaur.
