@@ -48,26 +48,34 @@ public class Location {
 
     public List<Dinosaur> returnLocationOfDiscovery(String location) {
         if (location.equals("North America")) {
-            System.out.println("ist of Dinosaurs discovered in North America: " + (northAmerica.get(0)).getName());
+            System.out.println("ist of Dinosaurs discovered in North America: " + printDinoNames(northAmerica));
             return northAmerica;
         } else if (location.equals("South America")) {
-            System.out.println("List of Dinosaurs discovered in South America: " + southAmerica);
+            System.out.println("List of Dinosaurs discovered in South America: " + printDinoNames(southAmerica));
             return southAmerica;
         } else if (location.equals("Asia")) {
-            System.out.println("List of Dinosaurs discovered in Asia: " + asia);
+            System.out.println("List of Dinosaurs discovered in Asia: " + printDinoNames(asia));
             return asia;
         } else if (location.equals("Africa")) {
-            System.out.println("ist of Dinosaurs discovered in Africa: " + africa);
+            System.out.println("ist of Dinosaurs discovered in Africa: " + printDinoNames(africa));
             return africa;
         } else if (location.equals("Australia")) {
-            System.out.println("List of Dinosaurs discovered in Australia: " + australia);
+            System.out.println("List of Dinosaurs discovered in Australia: " + printDinoNames(australia));
             return australia;
         } else if (location.equals("Europe")) {
-            System.out.println("List of Dinosaurs discovered in Europe: " + europe);
+            System.out.println("List of Dinosaurs discovered in Europe: " + printDinoNames(europe));
             return europe;
         } else {
             System.out.println("Invalid Location of Discovery...");
             return null;
         }
+    }
+
+    public List<String> printDinoNames(List<Dinosaur> location) {
+        List<String> nameOfDinos = new ArrayList<>();
+        for (Dinosaur d: location) {
+            nameOfDinos.add(d.getName());
+        }
+        return nameOfDinos;
     }
 }

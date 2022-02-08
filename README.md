@@ -13,14 +13,14 @@ A list of *functions* you can do with this Index:
 - Allows you to search for the specific dinosaur and returns their information!
 - Filter the specific time period the specific dinosaur lived in (Triassic, Jurassic and Cretaceous.)
 - Filter through Dinosaur types to search for variants of specific dinosaurs
-- View the family tree of the speicfic dinosaur and it's ancestors!
+- View the family tree of the speicfic dinosaur and it's ancestors! [Coming SOON!]
 - Add your newly discovered dinosaur into the index!
 
 Gives you in-depth information about the specific dinosaur in the dino page! Which includes...
 - 
 - The full name of the dinosaur.
 - Short description of what kind of dinosaur it was!
-- What family of dinosaur it belongs to.
+- What family of dinosaur it belongs to. [Coming SOON!]
 - Size
 - Where they lived in // Location where the fossil was found.
 - Diets (Carnivore, Omnivore, Herbivore, Scavenger)

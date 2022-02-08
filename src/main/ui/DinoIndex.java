@@ -241,6 +241,7 @@ public class DinoIndex {
         System.out.println("Enter the location of the fossil discovery!: ");
         String location = input.next();
 
+        //TODO How to make it print out the "name" proporties of the element in the location list.
         if (location.equals("North America")) {
             this.northAmerica.returnLocationOfDiscovery("North America");
         } else if (location.equals("South America")) {

@@ -10,9 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class DinosaurTest {
 
     private Dinosaur discoveredDinosaur;
-    private Location location;
-    private MesozoicEra era;
-    private DietType diet;
     private Dinosaur testDinosaur;
     private DietType testDiet;
     private Location testLocation;
@@ -70,20 +67,20 @@ class DinosaurTest {
 
     @Test
     void testAddDiet() {
-        diet = new DietType();
+        testDiet = new DietType();
         discoveredDinosaur.addDiet("Herbivore");
         assertEquals("Herbivore", discoveredDinosaur.getDiet());
-        diet = new DietType();
+        testDiet = new DietType();
         discoveredDinosaur.addDiet("Carnivore");
         assertEquals("Carnivore", discoveredDinosaur.getDiet());
-        diet = new DietType();
+        testDiet = new DietType();
         discoveredDinosaur.addDiet("Omnivore");
         assertEquals("Omnivore", discoveredDinosaur.getDiet());
     }
 
     @Test
     void testAddEra() {
-        era = new MesozoicEra();
+        testEra = new MesozoicEra();
         discoveredDinosaur.addEra("Cretaceous");
         assertEquals("Cretaceous", discoveredDinosaur.getEra());
     }

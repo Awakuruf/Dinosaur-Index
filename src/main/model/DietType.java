@@ -11,6 +11,7 @@ public class DietType {
     private List<Dinosaur> herbivore;
     private List<Dinosaur> omnivore;
 
+
     // REQUIRES: The string must not be empty.
     // EFFECTS: Constructs the diet category of dinosaurs
     public DietType() {
@@ -37,13 +38,13 @@ public class DietType {
     //Getter for Diet
     public List<Dinosaur> returnDiet(String dietType) {
         if (dietType.equals("Carnivore")) {
-            System.out.println("List of Dinosaurs that are Carnivores: " + carnivore);
+            System.out.println("List of Dinosaurs that are Carnivores: " + printDinoNames(carnivore));
             return carnivore;
         } else if (dietType.equals("Herbivore")) {
-            System.out.println("List of Dinosaurs that are Herbivores: " + herbivore);
+            System.out.println("List of Dinosaurs that are Herbivores: " + printDinoNames(herbivore));
             return herbivore;
         } else if (dietType.equals("Omnivore")) {
-            System.out.println("List of Dinosaurs that are Omnivores: " + omnivore);
+            System.out.println("List of Dinosaurs that are Omnivores: " + printDinoNames(omnivore));
             return omnivore;
         } else {
             System.out.println("Invalid Diet Type...");
@@ -51,10 +52,11 @@ public class DietType {
         }
     }
 
-     /* // REQUIRES: The string must not be empty and the dinosaur must be the origin dinosaur.
-    // EFFECTS: Filters and returns all the dinosaurs in the index to
-    // those that originate from the input dinosaur.
-    public List<Dinosaur> filterByLocation(Location nameOfLocation) {
-        return null; //STUB
-    } */
+    public List<String> printDinoNames(List<Dinosaur> era) {
+        List<String> nameOfDinos = new ArrayList<>();
+        for (Dinosaur d : era) {
+            nameOfDinos.add(d.getName());
+        }
+        return nameOfDinos;
+    }
 }

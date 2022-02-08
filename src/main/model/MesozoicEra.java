@@ -36,19 +36,30 @@ public class MesozoicEra {
 
     public List<Dinosaur> returnMesozoicEra(String era) {
         if (era.equals("Triassic")) {
-            System.out.println("List of Triassic Dinosaurs: " + (triassic.get(0)).getName());
+            System.out.println("List of Triassic Dinosaurs: " + printDinoNames(triassic));
             return triassic;
         } else if (era.equals("Jurassic")) {
-            System.out.println("List of Cretaceous Dinosaurs: " + cretaceous);
+            System.out.println("List of Cretaceous Dinosaurs: " + printDinoNames(jurassic));
             return jurassic;
         } else if (era.equals("Cretaceous")) {
-            System.out.println("List of Cretaceous Dinosaurs: " + cretaceous);
-            //TODO how to add the name instead of ID
+            System.out.println("List of Cretaceous Dinosaurs: " + printDinoNames(cretaceous));
             return cretaceous;
         } else {
             System.out.println("Invalid Diet Type...");
             return null;
         }
     }
+
+    public List<String> printDinoNames(List<Dinosaur> era) {
+        List<String> nameOfDinos = new ArrayList<>();
+        for (Dinosaur d: era) {
+            nameOfDinos.add(d.getName());
+        }
+        return nameOfDinos;
+    }
+
+
+
+
 }
 
