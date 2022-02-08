@@ -9,6 +9,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//TODO Ask about Overriding and Overloading Slide
+
 public class DinosaurListTest {
     private DinosaurList testDinoCatalogue;
     private Dinosaur testDinosaur;
@@ -177,5 +179,7 @@ public class DinosaurListTest {
         dinosaurs.add(testDinosaur);
         testDinoCatalogue.filterDinoInfo(testDinosaur.getName());
         assertEquals(testDinosaur.returnDinosaurPage(), testDinoCatalogue.filterDinoInfo(testDinosaur.getName()));
+        testDinoCatalogue.filterDinoInfo("Velociraptor");
+        assertEquals(null, testDinoCatalogue.filterDinoInfo("Velociraptor"));
     }
 }
