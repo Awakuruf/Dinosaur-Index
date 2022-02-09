@@ -60,6 +60,14 @@ public class DinosaurListTest {
     }
 
     @Test
+    void testNullFilterDiet() {
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        assertEquals(0, testDinoCatalogue.filterByDiet("Carnivore").size());
+        assertEquals(null, testDinosaur.getDiet());
+        assertTrue(testDinoCatalogue.filterByDiet("Carnivore").isEmpty());
+    }
+
+    @Test
     void testFilterByEra() {
         testDinoCatalogue.filterByEra("Jurassic");
         assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
@@ -80,6 +88,13 @@ public class DinosaurListTest {
         testDinoCatalogue.filterByEra("Jurassic");
         assertEquals(testDinosaur, testDinoCatalogue.filterByEra("Jurassic").get(1));
         assertEquals(2, testDinoCatalogue.filterByEra("Jurassic").size());
+    }
+
+    @Test
+    void testNullFilterEra() {
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        assertEquals(null, testDinosaur.getEra());
+        assertTrue(testDinoCatalogue.filterByEra("Jurassic").isEmpty());
     }
 
     @Test
@@ -104,6 +119,13 @@ public class DinosaurListTest {
         assertEquals(testDinosaur, testDinoCatalogue.filterByLocation("Asia").get(1));
         assertEquals(2, testDinoCatalogue.filterByLocation("Asia").size());
         assertEquals(3, testDinoCatalogue.returnCatalogueOfDinosaur().size());
+    }
+
+    @Test
+    void testNullFilterLocation() {
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        assertEquals(null, testDinosaur.getEra());
+        assertTrue(testDinoCatalogue.filterByLocation("Asia").isEmpty());
     }
 
     @Test
