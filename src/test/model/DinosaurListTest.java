@@ -14,169 +14,134 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class DinosaurListTest {
     private DinosaurList testDinoCatalogue;
     private Dinosaur testDinosaur;
-    private ArrayList<Dinosaur> dinosaurs;
-    private ArrayList<Dinosaur> filterdList;
 
     @BeforeEach
     void runBefore() {
         testDinoCatalogue = new DinosaurList();
         testDinosaur = new Dinosaur("Test-Dino");
-        dinosaurs = new ArrayList<>();
     }
 
     @Test
     void testConstructor() {
-        dinosaurs = new ArrayList<>();
-        assertTrue(dinosaurs.isEmpty());
-        assertEquals(0,dinosaurs.size());
+        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
+        assertEquals(0,testDinoCatalogue.returnCatalogueOfDinosaur().size());
     }
 
     @Test
     void testAddToCatalogue() {
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
-        assertEquals(testDinosaur, dinosaurs.get(0));
-        assertEquals(1, dinosaurs.size());
+        assertEquals(testDinosaur, testDinoCatalogue.returnCatalogueOfDinosaur().get(0));
+        assertEquals(1, testDinoCatalogue.returnCatalogueOfDinosaur().size());
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
-        assertEquals(testDinosaur, dinosaurs.get(1));
-        assertEquals(2, dinosaurs.size());
+        assertEquals(testDinosaur, testDinoCatalogue.returnCatalogueOfDinosaur().get(1));
+        assertEquals(2, testDinoCatalogue.returnCatalogueOfDinosaur().size());
     }
 
     @Test
     void testFilterByDiet() {
         testDinoCatalogue.filterByDiet("Carnivore");
-        assertTrue(dinosaurs.isEmpty());
+        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
         testDinosaur = new Dinosaur("Albertosaurus");
         testDinosaur.addDiet("Carnivore");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinoCatalogue.filterByDiet("Carnivore");
-        filterdList = new ArrayList<>();
-        filterdList.add(testDinosaur);
-        assertEquals(1, filterdList.size());
-        assertEquals(testDinosaur, filterdList.get(0));
+        assertEquals(1 , testDinoCatalogue.filterByDiet("Carnivore").size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByDiet("Carnivore").get(0));
         testDinosaur = new Dinosaur("Deinonychus");
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
         testDinosaur.addDiet("Carnivore");
-        dinosaurs.add(testDinosaur);
         testDinoCatalogue.filterByDiet("Carnivore");
-        filterdList.add(testDinosaur);
-        assertEquals(2, filterdList.size());
-        assertEquals(testDinosaur, filterdList.get(1));
+        assertEquals(2, testDinoCatalogue.filterByDiet("Carnivore").size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByDiet("Carnivore").get(1));
         testDinosaur = new Dinosaur("Parasaur");
         testDinosaur.addDiet("Herbivore");
         testDinoCatalogue.filterByDiet("Carnivore");
-        assertEquals(2, filterdList.size());
+        assertEquals(2, testDinoCatalogue.filterByDiet("Carnivore").size());
     }
 
     @Test
     void testFilterByEra() {
         testDinoCatalogue.filterByEra("Jurassic");
-        assertTrue(dinosaurs.isEmpty());
+        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
         testDinosaur = new Dinosaur("Allosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addEra("Jurassic");
         testDinoCatalogue.filterByEra("Jurassic");
-        filterdList = new ArrayList<>();
-        filterdList.add(testDinosaur);
-        assertEquals(testDinosaur, filterdList.get(0));
-        assertEquals(1, filterdList.size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByEra("Jurassic").get(0));
+        assertEquals(1, testDinoCatalogue.filterByEra("Jurassic").size());
         testDinosaur = new Dinosaur("Daspletosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addEra("Cretaceous");
         testDinoCatalogue.filterByEra("Jurassic");
-        assertEquals(1, filterdList.size());
-        testDinosaur = new Dinosaur("Daspletosaurus");
+        assertEquals(1, testDinoCatalogue.filterByEra("Jurassic").size());
+        testDinosaur = new Dinosaur("Carcardontosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addEra("Jurassic");
         testDinoCatalogue.filterByEra("Jurassic");
-        filterdList.add(testDinosaur);
-        assertEquals(testDinosaur, filterdList.get(1));
-        assertEquals(2, filterdList.size());
-
+        assertEquals(testDinosaur, testDinoCatalogue.filterByEra("Jurassic").get(1));
+        assertEquals(2, testDinoCatalogue.filterByEra("Jurassic").size());
     }
 
     @Test
     void testFilterByLocation() {
         testDinoCatalogue.filterByLocation("Asia");
-        assertTrue(dinosaurs.isEmpty());
+        assertTrue(testDinoCatalogue.filterByLocation("Asia").isEmpty());
         testDinosaur = new Dinosaur("Allosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addLocationFound("Asia");
         testDinoCatalogue.filterByLocation("Asia");
-        filterdList = new ArrayList<>();
-        filterdList.add(testDinosaur);
-        assertEquals(testDinosaur, filterdList.get(0));
-        assertEquals(1, filterdList.size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByLocation("Asia").get(0));
+        assertEquals(1, testDinoCatalogue.filterByLocation("Asia").size());
         testDinosaur = new Dinosaur("Daspletosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addLocationFound("North America");
         testDinoCatalogue.filterByLocation("Asia");
-        assertEquals(1, filterdList.size());
+        assertEquals(1, testDinoCatalogue.filterByLocation("Asia").size());
         testDinosaur = new Dinosaur("Pachycephalosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinosaur.addLocationFound("Asia");
         testDinoCatalogue.filterByLocation("Asia");
-        filterdList.add(testDinosaur);
-        assertEquals(testDinosaur, filterdList.get(1));
-        assertEquals(2, filterdList.size());
-        assertEquals(3, dinosaurs.size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByLocation("Asia").get(1));
+        assertEquals(2, testDinoCatalogue.filterByLocation("Asia").size());
+        assertEquals(3, testDinoCatalogue.returnCatalogueOfDinosaur().size());
     }
 
     @Test
     void testPrintDinoNames() {
-        assertTrue(dinosaurs.isEmpty());
+        assertTrue(testDinoCatalogue.printDinoNames().isEmpty());
         testDinoCatalogue.printDinoNames();
-        ArrayList<String> listOfNames = new ArrayList<>();
-        assertTrue(listOfNames.isEmpty());
+        assertTrue(testDinoCatalogue.printDinoNames().isEmpty());
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
-        listOfNames.add(testDinosaur.getName());
-        assertEquals(1, listOfNames.size());
-        assertEquals(listOfNames, testDinoCatalogue.printDinoNames());
-        assertEquals(testDinosaur.getName(), listOfNames.get(0));
+        testDinoCatalogue.printDinoNames().add(testDinosaur.getName());
+        assertEquals(1, testDinoCatalogue.printDinoNames().size());
+        assertEquals(testDinosaur.getName(), testDinoCatalogue.printDinoNames().get(0));
         testDinosaur = new Dinosaur("Albertosaurus");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
-        listOfNames.add(testDinosaur.getName());
-        assertEquals(2, listOfNames.size());
-        assertEquals(listOfNames, testDinoCatalogue.printDinoNames());
-        assertEquals(testDinosaur.getName(),listOfNames.get(1));
+        assertEquals(2, testDinoCatalogue.printDinoNames().size());
+        assertEquals(testDinosaur.getName(),testDinoCatalogue.printDinoNames().get(1));
     }
 
     @Test
     void testPrintFilteredNames() {
-        assertTrue(dinosaurs.isEmpty());
-        testDinoCatalogue.printFilteredNames(dinosaurs);
-        ArrayList<String> filteredNames = new ArrayList<>();
-        assertTrue(filteredNames.isEmpty());
+        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
+        testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur());
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
-        testDinoCatalogue.printFilteredNames(dinosaurs);
-        filteredNames.add(testDinosaur.getName());
-        assertEquals(1, filteredNames.size());
-        assertEquals(testDinosaur.getName(), filteredNames.get(0));
-        assertEquals(filteredNames, testDinoCatalogue.printFilteredNames(dinosaurs));
+        testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).add(testDinosaur.getName());
+        testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur());
+        assertEquals(1, testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).size());
+        assertEquals(testDinosaur.getName(), testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).get(0));
         testDinosaur = new Dinosaur("Daspletosaurus");
-        dinosaurs.add(testDinosaur);
-        testDinoCatalogue.printFilteredNames(dinosaurs);
-        filteredNames.add(testDinosaur.getName());
-        assertEquals(2, filteredNames.size());
-        assertEquals(testDinosaur.getName(), filteredNames.get(1));
-        assertEquals(filteredNames, testDinoCatalogue.printFilteredNames(dinosaurs));
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur());
+        testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).add(testDinosaur.getName());
+        assertEquals(2, testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).size());
+        assertEquals(testDinosaur.getName(), testDinoCatalogue.printFilteredNames(testDinoCatalogue.returnCatalogueOfDinosaur()).get(1));
     }
 
     @Test
     void testFilterDinoInfo() {
-        assertTrue(dinosaurs.isEmpty());
+        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        dinosaurs.add(testDinosaur);
         testDinoCatalogue.filterDinoInfo(testDinosaur.getName());
         assertEquals(testDinosaur.returnDinosaurPage(), testDinoCatalogue.filterDinoInfo(testDinosaur.getName()));
         testDinoCatalogue.filterDinoInfo("Velociraptor");

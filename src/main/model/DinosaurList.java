@@ -101,4 +101,9 @@ public class DinosaurList {
         }
         return null;
     }
+
+    // Getter for the Catalogue of Dinosaur.
+    public List<Dinosaur> returnCatalogueOfDinosaur() {
+        return listOfDino;
+    }
 }
