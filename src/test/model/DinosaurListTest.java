@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 //TODO Ask about Overriding and Overloading Slide
 
@@ -39,11 +38,12 @@ public class DinosaurListTest {
 
     @Test
     void testFilterByDiet() {
-        testDinoCatalogue.filterByDiet("Carnivore");
-        assertTrue(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
-        testDinosaur = new Dinosaur("Albertosaurus");
-        testDinosaur.addDiet("Carnivore");
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        testDinoCatalogue.filterByDiet("Carnivore");
+        assertFalse(testDinoCatalogue.returnCatalogueOfDinosaur().isEmpty());
+        testDinosaur = new Dinosaur("Albertosaurus");
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
+        testDinosaur.addDiet("Carnivore");
         testDinoCatalogue.filterByDiet("Carnivore");
         assertEquals(1 , testDinoCatalogue.filterByDiet("Carnivore").size());
         assertEquals(testDinosaur, testDinoCatalogue.filterByDiet("Carnivore").get(0));
@@ -54,9 +54,11 @@ public class DinosaurListTest {
         assertEquals(2, testDinoCatalogue.filterByDiet("Carnivore").size());
         assertEquals(testDinosaur, testDinoCatalogue.filterByDiet("Carnivore").get(1));
         testDinosaur = new Dinosaur("Parasaur");
+        testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
         testDinosaur.addDiet("Herbivore");
-        testDinoCatalogue.filterByDiet("Carnivore");
         assertEquals(2, testDinoCatalogue.filterByDiet("Carnivore").size());
+        assertEquals(1, testDinoCatalogue.filterByDiet("Herbivore").size());
+        assertEquals(testDinosaur, testDinoCatalogue.filterByDiet("Herbivore").get(0));
     }
 
     @Test
