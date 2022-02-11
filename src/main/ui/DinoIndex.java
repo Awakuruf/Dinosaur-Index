@@ -50,7 +50,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the first set of dinosaurs are present in the index.
+    // EFFECTS: Inputs the first set of dinosaurs are present in the index.
     private void makeIndex() {
         catalogueDinosaur = new DinosaurList();
         makeDinosaur1();
@@ -70,7 +70,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the first origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the first embedded dinosaur that represent each section of index.
     private void makeDinosaur1() {
         tyrano = new Dinosaur("Tyrannosaurus");
         tyrano.addLocationFound("North America");
@@ -82,7 +82,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the secound origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the second embedded dinosaur that represent each section of index.
     private void makeDinosaurs2() {
         trike = new Dinosaur("Triceratops");
         trike.addEra("Cretaceous");
@@ -95,7 +95,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the third origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the third embedded dinosaur that represent each section of index.
     private void makeDinosaurs3() {
         eoraptor = new Dinosaur("Eoraptor");
         eoraptor.addEra("Triassic");
@@ -108,7 +108,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the fourth origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the fourth embedded dinosaur that represent each section of index.
     private void makeDinosaurs4() {
         stego = new Dinosaur("Stegosaurus");
         stego.addEra("Jurassic");
@@ -121,7 +121,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the fifth origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the fifth embedded dinosaur that represent each section of index.
     private void makeDinosaurs5() {
         giga = new Dinosaur("Giganotosaurus");
         giga.addEra("Cretaceous");
@@ -134,7 +134,7 @@ public class DinoIndex {
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates the sixth origin dinosaur that represent each section of index.
+    // EFFECTS: Creates the sixth embedded dinosaur that represent each section of index.
     private void makeDinosaurs6() {
         coel = new Dinosaur("Coelophysis");
         coel.addEra("Triassic");
@@ -160,8 +160,7 @@ public class DinoIndex {
         System.out.println("\nc = Close the Index.");
     }
 
-    // MODIFIES: this
-    // EFFECTS: Selects the designated page in the index.
+    // EFFECTS: Selects the designated operation in the index.
     private void selectPage(String input) {
         if (input.equals("n")) {
             searchByName();
@@ -251,7 +250,7 @@ public class DinoIndex {
 
     // REQUIRES: inputted name has to be the name of existing dinosaur
     // MODIFIES: this
-    // EFFECTS: Updates the existing discovered Dinosaur with information.
+    // EFFECTS: Selects the existing discovered Dinosaur with the information the user wants to add.
     // (E.g.: Size, Diet, Location of Discovery and etc...)
     private void updateNewDino() {
         System.out.println("Enter the name of the existing discovered Dinosaur: ");
@@ -278,7 +277,8 @@ public class DinoIndex {
         }
     }
 
-
+    // MODIFIES: this
+    // EFFECTS: Updates the existing Dinosaur's size with the inputted size.
     private void updateSize() {
         System.out.println("What was the size of the Dinosaur?");
         Integer size = input.nextInt();
@@ -286,6 +286,8 @@ public class DinoIndex {
         System.out.println("Successfully added size!");
     }
 
+    // MODIFIES: this
+    // EFFECTS: Updates the existing Dinosaur's description with the inputted description.
     private void updateDescription() {
         System.out.println("What is the description of the Dinosaur?");
         String description = input.next();
@@ -293,6 +295,8 @@ public class DinoIndex {
         System.out.println("Successfully added description!");
     }
 
+    // MODIFIES: this
+    // EFFECTS: Updates the existing Dinosaur's diet with the inputted type of diet.
     private void updateDiet() {
         System.out.println("Was the dinosaur Carnivore, Herbivore or Omnivore?");
         String diet = input.next();
@@ -310,6 +314,8 @@ public class DinoIndex {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Updates the existing Dinosaur's location with the inputted location.
     private void updateLocation() {
         System.out.println("Where was this dinosaur's fossil discovered?");
         String location = input.next();
@@ -330,6 +336,8 @@ public class DinoIndex {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Updates the existing Dinosaur's Mesozoic Era with the inputted era.
     private void updatePeriod() {
         System.out.println("Did the dinosaur live in: Triassic, Jurassic or Cretaceous?");
         String era = input.next();

@@ -6,7 +6,7 @@ import java.util.List;
 public class Dinosaur {
     //Add your dinosaurs or look up the dinosaur either by name or filtering!
     //Dinosaur includes these properties: Description, Location of where the fossil was discovered,
-    //family tree it belongs to, size, diet and which mesozoic era it existed in.
+    //size, diet and which mesozoic era it existed in.
 
     //Fields
     private String nameOfDinosaur;
@@ -30,7 +30,7 @@ public class Dinosaur {
         era = null;
     }
 
-    // REQUIRES: The string must not be empty and this dinosaur cannot be the origin dinosaur.
+    // REQUIRES: The string must not be empty.
     // MODIFIES: this
     // EFFECTS: Adds the description of the dinosaur such as its trait and behaviour.
     public void addDescription(String description) {
@@ -67,14 +67,12 @@ public class Dinosaur {
     }
 
     // REQUIRES: The dinosaur must exist in the index before called.
-    // MODIFIES: this
     // EFFECTS: Returns all the information under the designated dinosaur.
     public String returnDinosaurPage() {
         System.out.println("Name:" + nameOfDinosaur);
         System.out.println("Description:" + description);
         System.out.println("Size:" + size);
         System.out.println("Location of Discovery:" + location);
-        System.out.println("Family Tree of Dinosaur: Unknown");
         System.out.println("Diet:" + diet);
         System.out.println("Mesozoic Period: " + era);
         return nameOfDinosaur;

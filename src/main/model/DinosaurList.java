@@ -11,7 +11,7 @@ public class DinosaurList {
 
 
     // REQUIRES: The string must not be empty.
-    // EFFECTS: Constructs an empty list of categories of dinosaurs.
+    // EFFECTS: Constructs an empty list that represents the catalogue of dinosaurs.
     public DinosaurList() {
         listOfDino = new ArrayList<>();
     }
@@ -23,7 +23,7 @@ public class DinosaurList {
         listOfDino.add(dinosaur);
     }
 
-    // REQUIRES: The string must not be empty and this nameOfDino cannot be the name of origin dinosaur.
+    // REQUIRES: The string must not be empty.
     // MODIFIES: this
     // EFFECTS: Returns a list containing dinosaurs that have the inputted diet.
     public List<Dinosaur> filterByDiet(String diet) {
@@ -38,7 +38,7 @@ public class DinosaurList {
         return withDiet;
     }
 
-    // REQUIRES: The string must not be empty and this nameOfDino cannot be the name of origin dinosaur.
+    // REQUIRES: The string must not be empty.
     // MODIFIES: this
     // EFFECTS: Returns a list containing dinosaurs that have the inputted Mesozoic Period.
     public List<Dinosaur> filterByEra(String mesozoicPeriod) {
@@ -53,7 +53,7 @@ public class DinosaurList {
         return withEra;
     }
 
-    // REQUIRES: The string must not be empty and this nameOfDino cannot be the name of origin dinosaur.
+    // REQUIRES: The string must not be empty.
     // MODIFIES: this
     // EFFECTS: Returns a list containing dinosaurs that have the inputted Location of Discovery.
     public List<Dinosaur> filterByLocation(String location) {
@@ -70,7 +70,7 @@ public class DinosaurList {
 
     // REQUIRES: listOfDino cannot be an empty set of list.
     // MODIFIES: this
-    // EFFECTS: Returns a list containing the name of the dinosaurs in the list.
+    // EFFECTS: Returns a list of names of the dinosaurs in the catalogue of dinosaurs.
     public List<String> printDinoNames() {
         List<String> nameOfDino = new ArrayList<>();
         for (Dinosaur d : listOfDino) {
@@ -81,7 +81,8 @@ public class DinosaurList {
 
     // REQUIRES: The parameter "list" cannot be an empty list.
     // MODIFIES: this
-    // EFFECTS: Returns a list containing the filtered dinosaur's names.
+    // EFFECTS: Returns a list containing the name of the dinosaurs that
+    // were filtered.
     public List<String> printFilteredNames(List<Dinosaur> list) {
         List<String> namesOfDino = new ArrayList<>();
         for (Dinosaur d : list) {
@@ -102,7 +103,7 @@ public class DinosaurList {
         return null;
     }
 
-    // Getter for the Catalogue of Dinosaur.
+    // Getter for the DinosaurList.
     public List<Dinosaur> returnCatalogueOfDinosaur() {
         return listOfDino;
     }
