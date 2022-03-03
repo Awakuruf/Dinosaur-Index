@@ -1,19 +1,25 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class DinosaurList {
+public class DinosaurList implements Writable {
     //This shows the list of countries of where the dinosaur fossil was discovered in!
 
     //fields
     private List<Dinosaur> listOfDino;
+    private String name;
 
 
     // REQUIRES: The string must not be empty.
     // EFFECTS: Constructs an empty list that represents the catalogue of dinosaurs.
-    public DinosaurList() {
+    public DinosaurList(String name) {
         listOfDino = new ArrayList<>();
+        this.name = name;
     }
 
     // REQUIRES: The inputted dinosaur cannot be null.
@@ -106,5 +112,33 @@ public class DinosaurList {
     // Getter for the DinosaurList.
     public List<Dinosaur> returnCatalogueOfDinosaur() {
         return listOfDino;
+    }
+
+    // Getter for size of the DinosaurList.
+    public int returnSize() {
+        return listOfDino.size();
+    }
+
+    // Getter for name of the DinosaurList.
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("dinosaurList", dinosaursToJson());
+        return json;
+    }
+
+    private JSONArray dinosaursToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Dinosaur d : listOfDino) {
+            jsonArray.put(d.toJson());
+        }
+
+        return jsonArray;
     }
 }

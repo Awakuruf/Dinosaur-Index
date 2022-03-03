@@ -1,0 +1,21 @@
+{
+    "name": "My DinoIndex",
+    "dinosaurList": [
+        {
+            "size": 10,
+            "era": "Cretaceous",
+            "name": "Ankylosaur",
+            "description": "Armored Lizard",
+            "location": "North America",
+            "diet": "Herbivore"
+        },
+        {
+            "size": 9,
+            "era": "Jurassic",
+            "name": "Stegosaurus",
+            "description": "Spiked Lizard",
+            "location": "Africa",
+            "diet": "Herbivore"
+        }
+    ]
+}

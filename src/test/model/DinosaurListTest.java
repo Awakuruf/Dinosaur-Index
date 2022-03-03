@@ -16,7 +16,7 @@ public class DinosaurListTest {
 
     @BeforeEach
     void runBefore() {
-        testDinoCatalogue = new DinosaurList();
+        testDinoCatalogue = new DinosaurList("DinoIndex #1");
         testDinosaur = new Dinosaur("Test-Dino");
     }
 

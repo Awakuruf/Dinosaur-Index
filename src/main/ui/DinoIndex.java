@@ -1,7 +1,11 @@
 package ui;
 
 import model.*;
+import persistence.JsonDinoAnalyzer;
+import persistence.JsonDinoWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,8 +24,16 @@ public class DinoIndex {
     private Dinosaur discoveredDinosaur;
     private Scanner input;
 
+    private static final String JSON_STORE = "./data/dinoIndex.json";
+    private JsonDinoWriter jsonDinoWriter;
+    private JsonDinoAnalyzer jsonDinoAnalyzer;
+
     // EFFECTS: Starts up the index
     public DinoIndex() {
+        input = new Scanner(System.in);
+        catalogueDinosaur = new DinosaurList("Default DinoIndex");
+        jsonDinoAnalyzer = new JsonDinoAnalyzer(JSON_STORE);
+        jsonDinoWriter = new JsonDinoWriter(JSON_STORE);
         openDinoIndex();
     }
 
@@ -52,7 +64,6 @@ public class DinoIndex {
     // MODIFIES: this
     // EFFECTS: Inputs the first set of dinosaurs are present in the index.
     private void makeIndex() {
-        catalogueDinosaur = new DinosaurList();
         makeDinosaur1();
         catalogueDinosaur.addToCatalogueOfDino(tyrano);
         makeDinosaurs2();
@@ -77,6 +88,7 @@ public class DinoIndex {
         tyrano.addDescription("Tyrant King Lizard");
         tyrano.addSize(12);
         tyrano.addDiet("Carnivore");
+        tyrano.addEra("Cretaceous");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -151,12 +163,13 @@ public class DinoIndex {
     private void openTableOfContents() {
         System.out.println("\nChoose Option:");
         System.out.println("\nn = Search by Name!");
-        System.out.println("\nl = Search by Location of Discovery!");
+        System.out.println("\np = Search by Location of Discovery!");
         System.out.println("\ne = Filter By Mesozoic Era!");
         System.out.println("\nf = Filter by Dinosaur's Diet!");
-        System.out.println("\nt = Filter by Dinosaur's Phylogenetic Tree [COMING SOON!!!]");
         System.out.println("\nd = Discovered new dinosaur!");
         System.out.println("\nu = Update dinosaur information!");
+        System.out.println("\ns = Save Dinosaurs to File!");
+        System.out.println("\nl = Load Dinosaurs from File!");
         System.out.println("\nc = Close the Index.");
     }
 
@@ -164,7 +177,7 @@ public class DinoIndex {
     private void selectPage(String input) {
         if (input.equals("n")) {
             searchByName();
-        } else if (input.equals("l")) {
+        } else if (input.equals("p")) {
             searchByLocation();
         } else if (input.equals("e")) {
             searchByEra();
@@ -174,6 +187,10 @@ public class DinoIndex {
             discoveredNewDino();
         } else if (input.equals("u")) {
             updateNewDino();
+        } else if (input.equals("s")) {
+            saveDinoIndex();
+        } else if (input.equals("l")) {
+            loadDinoIndex();
         } else {
             System.out.println("Invalid input");
         }
@@ -234,15 +251,15 @@ public class DinoIndex {
         System.out.println("What information would you like to add?");
         String information = input.next();
         if (information.equals("Size")) {
-            updateSize();
+            updateSize(discoveredDinosaur);
         } else if (information.equals("Description")) {
-            updateDescription();
+            updateDescription(discoveredDinosaur);
         } else if (information.equals("Diet")) {
-            updateDiet();
+            updateDiet(discoveredDinosaur);
         } else if (information.equals("Location of Discovery")) {
-            updateLocation();
+            updateLocation(discoveredDinosaur);
         } else if (information.equals("Mesozoic Period")) {
-            updatePeriod();
+            updatePeriod(discoveredDinosaur);
         } else {
             System.out.println("Invalid Input...");
         }
@@ -255,59 +272,60 @@ public class DinoIndex {
     private void updateNewDino() {
         System.out.println("Enter the name of the existing discovered Dinosaur: ");
         String name = input.next();
-        if (name.equals(discoveredDinosaur.getName())) {
-            System.out.println("Description, Size, Location of Discovery, Diet, Mesozoic Period:");
-            System.out.println("What information would you like to add?");
-            String information = input.next();
-            if (information.equals("Size")) {
-                updateSize();
-            } else if (information.equals("Description")) {
-                updateDescription();
-            } else if (information.equals("Diet")) {
-                updateDiet();
-            } else if (information.equals("Location of Discovery")) {
-                updateLocation();
-            } else if (information.equals("Mesozoic Period")) {
-                updatePeriod();
-            } else {
-                System.out.println("Invalid Input...");
+        for (Dinosaur d : catalogueDinosaur.returnCatalogueOfDinosaur()) {
+            if (name.equals(d.getName())) {
+                System.out.println("Description, Size, Location of Discovery, Diet, Mesozoic Period:");
+                System.out.println("What information would you like to add?");
+                String information = input.next();
+                if (information.equals("Size")) {
+                    updateSize(d);
+                } else if (information.equals("Description")) {
+                    updateDescription(d);
+                } else if (information.equals("Diet")) {
+                    updateDiet(d);
+                } else if (information.equals("Location of Discovery")) {
+                    updateLocation(d);
+                } else if (information.equals("Mesozoic Period")) {
+                    updatePeriod(d);
+                } else {
+                    System.out.println("Invalid Input...");
+                }
             }
-        } else {
-            System.out.println("No existing Dinosaur...");
         }
+        //TODO System.out.println("No existing Dinosaur...");
     }
 
     // MODIFIES: this
     // EFFECTS: Updates the existing Dinosaur's size with the inputted size.
-    private void updateSize() {
+    private void updateSize(Dinosaur d) {
         System.out.println("What was the size of the Dinosaur?");
         Integer size = input.nextInt();
-        discoveredDinosaur.addSize(size);
+        d.addSize(size);
         System.out.println("Successfully added size!");
     }
 
     // MODIFIES: this
     // EFFECTS: Updates the existing Dinosaur's description with the inputted description.
-    private void updateDescription() {
+    private void updateDescription(Dinosaur d) {
         System.out.println("What is the description of the Dinosaur?");
         String description = input.next();
-        discoveredDinosaur.addDescription(description);
+        d.addDescription(description);
         System.out.println("Successfully added description!");
     }
 
     // MODIFIES: this
     // EFFECTS: Updates the existing Dinosaur's diet with the inputted type of diet.
-    private void updateDiet() {
+    private void updateDiet(Dinosaur d) {
         System.out.println("Was the dinosaur Carnivore, Herbivore or Omnivore?");
         String diet = input.next();
         if (diet.equals("Carnivore")) {
-            discoveredDinosaur.addDiet("Carnivore");
+            d.addDiet("Carnivore");
             System.out.println("Successfully added diet!");
         } else if (diet.equals("Herbivore")) {
-            discoveredDinosaur.addDiet("Herbivore");
+            d.addDiet("Herbivore");
             System.out.println("Successfully added diet!");
         } else if (diet.equals("Omnivore")) {
-            discoveredDinosaur.addDiet("Omnivore");
+            d.addDiet("Omnivore");
             System.out.println("Successfully added diet!");
         } else {
             System.out.println("Invalid Diet...");
@@ -316,20 +334,20 @@ public class DinoIndex {
 
     // MODIFIES: this
     // EFFECTS: Updates the existing Dinosaur's location with the inputted location.
-    private void updateLocation() {
+    private void updateLocation(Dinosaur d) {
         System.out.println("Where was this dinosaur's fossil discovered?");
         String location = input.next();
         if (location.equals("North America")) {
-            discoveredDinosaur.addLocationFound("North America");
+            d.addLocationFound("North America");
             System.out.println("Successfully added location!");
         } else if (location.equals("Asia")) {
-            discoveredDinosaur.addLocationFound("Asia");
+            d.addLocationFound("Asia");
             System.out.println("Successfully added location!");
         } else if (location.equals("Africa")) {
-            discoveredDinosaur.addLocationFound("Africa");
+            d.addLocationFound("Africa");
             System.out.println("Successfully added location!");
         } else if (location.equals("Europe")) {
-            discoveredDinosaur.addLocationFound("Europe");
+            d.addLocationFound("Europe");
             System.out.println("Successfully added location!");
         } else {
             System.out.println("Invalid Input...");
@@ -338,20 +356,43 @@ public class DinoIndex {
 
     // MODIFIES: this
     // EFFECTS: Updates the existing Dinosaur's Mesozoic Era with the inputted era.
-    private void updatePeriod() {
+    private void updatePeriod(Dinosaur d) {
         System.out.println("Did the dinosaur live in: Triassic, Jurassic or Cretaceous?");
         String era = input.next();
         if (era.equals("Triassic")) {
-            discoveredDinosaur.addEra("Triassic");
+            d.addEra("Triassic");
             System.out.println("Successfully added Mesozoic Era!");
         } else if (era.equals("Jurassic")) {
-            discoveredDinosaur.addEra("Jurassic");
+            d.addEra("Jurassic");
             System.out.println("Successfully added Mesozoic Era!");
         } else if (era.equals("Cretaceous")) {
-            discoveredDinosaur.addEra("Cretaceous");
+            d.addEra("Cretaceous");
             System.out.println("Successfully added Mesozoic Era!");
         } else {
             System.out.println("Invalid Input...");
+        }
+    }
+
+    // EFFECTS: saves the DinoIndex to file
+    private void saveDinoIndex() {
+        try {
+            jsonDinoWriter.open();
+            jsonDinoWriter.write(catalogueDinosaur);
+            jsonDinoWriter.close();
+            System.out.println("Saved " + catalogueDinosaur.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads DinoIndex from file
+    private void loadDinoIndex() {
+        try {
+            catalogueDinosaur = jsonDinoAnalyzer.analyze();
+            System.out.println("Loaded " + catalogueDinosaur.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

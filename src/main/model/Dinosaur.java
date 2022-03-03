@@ -1,9 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dinosaur {
+public class Dinosaur implements Writable {
     //Add your dinosaurs or look up the dinosaur either by name or filtering!
     //Dinosaur includes these properties: Description, Location of where the fossil was discovered,
     //size, diet and which mesozoic era it existed in.
@@ -11,11 +14,10 @@ public class Dinosaur {
     //Fields
     private String nameOfDinosaur;
     private String description;
-    private String  diet;
+    private String diet;
     private Integer size;
     private String location;
     private String era;
-
 
 
     // REQUIRES: The string must not be empty.
@@ -23,11 +25,11 @@ public class Dinosaur {
     // Properties that hasn't been discovered remain as null.
     public Dinosaur(String name) {
         this.nameOfDinosaur = name;
-        description = null;
-        size = null;
-        diet = null;
-        location = null;
-        era = null;
+        description = "No Description inputted";
+        size = 0;
+        diet = "No Diet inputted";
+        location = "No Location of Discovery inputted";
+        era = "No Mesozoic Era inputted";
     }
 
     // REQUIRES: The string must not be empty.
@@ -108,6 +110,25 @@ public class Dinosaur {
         return era;
     }
 
+    public String checkDiet() {
+        if (diet.equals(null)) {
+            return null;
+        } else {
+            return diet;
+        }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", nameOfDinosaur);
+        json.put("diet", diet);
+        json.put("era", era);
+        json.put("location", location);
+        json.put("size", size);
+        json.put("description", description);
+        return json;
+    }
 
 
 }

@@ -45,3 +45,5 @@ User Stories
 - As a user I want to filter all the Dinosaur in the index by Carnivores to make sure this dinosaur was added in the right category.
 - As a user I want to add this Dinosaur to the group of Jurassic dinosaurs as it lived in the Jurassic Period.
 - As a user I want to view all the added information of this Dinosaur.
+- As a user I want to save the dinosaur I just added in the DinoIndex.
+- As a user I want to load the DinoIndex with the previously saved dinosaur in it.
