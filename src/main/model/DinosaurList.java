@@ -35,10 +35,8 @@ public class DinosaurList implements Writable {
     public List<Dinosaur> filterByDiet(String diet) {
         ArrayList<Dinosaur> withDiet = new ArrayList<>();
         for (Dinosaur d : listOfDino) {
-            if (d.getDiet() != null) {
-                if (d.getDiet().equals(diet)) {
-                    withDiet.add(d);
-                }
+            if (d.getDiet().equals(diet)) {
+                withDiet.add(d);
             }
         }
         return withDiet;
@@ -50,10 +48,8 @@ public class DinosaurList implements Writable {
     public List<Dinosaur> filterByEra(String mesozoicPeriod) {
         ArrayList<Dinosaur> withEra = new ArrayList<>();
         for (Dinosaur d : listOfDino) {
-            if (d.getEra() != null) {
-                if (d.getEra().equals(mesozoicPeriod)) {
-                    withEra.add(d);
-                }
+            if (d.getEra().equals(mesozoicPeriod)) {
+                withEra.add(d);
             }
         }
         return withEra;
@@ -65,10 +61,8 @@ public class DinosaurList implements Writable {
     public List<Dinosaur> filterByLocation(String location) {
         ArrayList<Dinosaur> withLocation = new ArrayList<>();
         for (Dinosaur d : listOfDino) {
-            if (d.getLocation() != null) {
-                if (d.getLocation().equals(location)) {
-                    withLocation.add(d);
-                }
+            if (d.getLocation().equals(location)) {
+                withLocation.add(d);
             }
         }
         return withLocation;
@@ -124,6 +118,7 @@ public class DinosaurList implements Writable {
         return name;
     }
 
+    //EFFECTS: Returns DinosaurList as a JSON Object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -132,6 +127,7 @@ public class DinosaurList implements Writable {
         return json;
     }
 
+    //EFFECTS: Returns listOfDino as a JSON Array.
     private JSONArray dinosaursToJson() {
         JSONArray jsonArray = new JSONArray();
 

@@ -65,7 +65,7 @@ public class DinosaurListTest {
     void testNullFilterDiet() {
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
         assertEquals(0, testDinoCatalogue.filterByDiet("Carnivore").size());
-        assertEquals(null, testDinosaur.getDiet());
+        assertEquals("No Diet inputted", testDinosaur.getDiet());
         assertTrue(testDinoCatalogue.filterByDiet("Carnivore").isEmpty());
     }
 
@@ -93,9 +93,9 @@ public class DinosaurListTest {
     }
 
     @Test
-    void testNullFilterEra() {
+    void testNoFilterEra() {
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        assertEquals(null, testDinosaur.getEra());
+        assertEquals("No Mesozoic Era inputted", testDinosaur.getEra());
         assertTrue(testDinoCatalogue.filterByEra("Jurassic").isEmpty());
     }
 
@@ -126,7 +126,7 @@ public class DinosaurListTest {
     @Test
     void testNullFilterLocation() {
         testDinoCatalogue.addToCatalogueOfDino(testDinosaur);
-        assertEquals(null, testDinosaur.getEra());
+        assertEquals("No Location of Discovery inputted", testDinosaur.getLocation());
         assertTrue(testDinoCatalogue.filterByLocation("Asia").isEmpty());
     }
 

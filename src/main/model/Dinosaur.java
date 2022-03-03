@@ -110,14 +110,7 @@ public class Dinosaur implements Writable {
         return era;
     }
 
-    public String checkDiet() {
-        if (diet.equals(null)) {
-            return null;
-        } else {
-            return diet;
-        }
-    }
-
+    //EFFECTS: Returns Dinosaur as a JSON Object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

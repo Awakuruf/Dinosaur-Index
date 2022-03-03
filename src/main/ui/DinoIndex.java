@@ -395,6 +395,4 @@ public class DinoIndex {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
-
-
 }
