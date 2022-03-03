@@ -1,0 +1,21 @@
+{
+    "name": "My DinoIndex",
+    "dinosaurList": [
+        {
+            "size": 0,
+            "era": "No Mesozoic Era inputted",
+            "name": "Ankylosaur",
+            "description": "No Description inputted",
+            "location": "No Location of Discovery inputted",
+            "diet": "No Diet inputted"
+        },
+        {
+            "size": 0,
+            "era": "No Mesozoic Era inputted",
+            "name": "Velociraptor",
+            "description": "No Description inputted",
+            "location": "No Location of Discovery inputted",
+            "diet": "No Diet inputted"
+        }
+    ]
+}

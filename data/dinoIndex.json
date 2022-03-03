@@ -1,0 +1,61 @@
+{
+    "name": "Default DinoIndex",
+    "dinosaurList": [
+        {
+            "size": 12,
+            "era": "Cretaceous",
+            "name": "Tyrannosaurus",
+            "description": "Tyrant King Lizard",
+            "location": "North America",
+            "diet": "Carnivore"
+        },
+        {
+            "size": 9,
+            "era": "Cretaceous",
+            "name": "Triceratops",
+            "description": "Three Horned Lizard",
+            "location": "North America",
+            "diet": "Herbivore"
+        },
+        {
+            "size": 3,
+            "era": "Triassic",
+            "name": "Eoraptor",
+            "description": "First ever raptor to exist on earth.",
+            "location": "Asia",
+            "diet": "Omnivore"
+        },
+        {
+            "size": 10,
+            "era": "Jurassic",
+            "name": "Stegosaurus",
+            "description": "Spiked dinosaur, existed in Jurassic Period",
+            "location": "Africa",
+            "diet": "Herbivore"
+        },
+        {
+            "size": 14,
+            "era": "Cretaceous",
+            "name": "Giganotosaurus",
+            "description": "Biggest type of Tyranosaur",
+            "location": "South America",
+            "diet": "Carnivore"
+        },
+        {
+            "size": 2,
+            "era": "Triassic",
+            "name": "Coelophysis",
+            "description": "The first ever living Dinosaur dated back 1000 million years ago.",
+            "location": "Africa // North America",
+            "diet": "Omnivore"
+        },
+        {
+            "size": 0,
+            "era": "No entry for Mesozoic Era",
+            "name": "Spinosaurus",
+            "description": "Description not inputted",
+            "location": "Africa",
+            "diet": "Carnivore"
+        }
+    ]
+}
