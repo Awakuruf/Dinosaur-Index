@@ -336,6 +336,7 @@ public class DinoIndex {
     // EFFECTS: Updates the existing Dinosaur's location with the inputted location.
     private void updateLocation(Dinosaur d) {
         System.out.println("Where was this dinosaur's fossil discovered?");
+        System.out.println("Enter either 'North America' 'South America' 'Africa' 'Asia' or 'Europe': ");
         String location = input.next();
         if (location.equals("North America")) {
             d.addLocationFound("North America");

@@ -50,12 +50,28 @@
             "diet": "Omnivore"
         },
         {
+            "size": 9,
+            "era": "Cretaceous",
+            "name": "Ankylosaurus",
+            "description": "Hammered tailed lizard.",
+            "location": "North America",
+            "diet": "Herbivore"
+        },
+        {
             "size": 0,
-            "era": "No entry for Mesozoic Era",
-            "name": "Spinosaurus",
-            "description": "Description not inputted",
-            "location": "Africa",
+            "era": "No Mesozoic Era inputted",
+            "name": "Velociraptor",
+            "description": "No Description inputted",
+            "location": "No Location of Discovery inputted",
             "diet": "Carnivore"
+        },
+        {
+            "size": 10,
+            "era": "No Mesozoic Era inputted",
+            "name": "Trex",
+            "description": "No Description inputted",
+            "location": "No Location of Discovery inputted",
+            "diet": "No Diet inputted"
         }
     ]
 }
