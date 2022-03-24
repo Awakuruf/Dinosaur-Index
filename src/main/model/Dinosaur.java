@@ -3,8 +3,8 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.*;
+import java.awt.*;
 
 public class Dinosaur implements Writable {
     //Add your dinosaurs or look up the dinosaur either by name or filtering!
@@ -18,6 +18,8 @@ public class Dinosaur implements Writable {
     private Integer size;
     private String location;
     private String era;
+    private ImageIcon image;
+    private String imageDirectory;
 
 
     // REQUIRES: The string must not be empty.
@@ -30,6 +32,13 @@ public class Dinosaur implements Writable {
         diet = "No Diet inputted";
         location = "No Location of Discovery inputted";
         era = "No Mesozoic Era inputted";
+        if (imageDirectory == null) {
+            imageDirectory = "./images/unknown dino.jpg";
+        }
+        image = new ImageIcon(imageDirectory);
+        Image tempImage = image.getImage();
+        Image newImage = tempImage.getScaledInstance(125, 125, java.awt.Image.SCALE_SMOOTH);
+        image = new ImageIcon(newImage);
     }
 
     // REQUIRES: The string must not be empty.
@@ -49,7 +58,7 @@ public class Dinosaur implements Writable {
     // REQUIRES: The length must be > 0.
     // MODIFIES: this
     // EFFECTS: Adds the size of the dinosaur in meters.
-    public void addSize(int length) {
+    public void addSize(Integer length) {
         this.size = length;
     }
 
@@ -66,6 +75,27 @@ public class Dinosaur implements Writable {
     // EFFECTS: Adds the period of mesozoic era this dinosaur lived in.
     public void addEra(String era) {
         this.era = era;
+    }
+
+    // REQUIRES: The string must not be empty.
+    // MODIFIES: this
+    // EFFECTS: Add the image of the dinosaur.
+    public void addImage(String imageLink) {
+        this.image = new ImageIcon(imageLink);
+    }
+
+    // REQUIRES: The string must not be empty.
+    // MODIFIES: this
+    // EFFECTS: Add the image of the dinosaur.
+    public void pasteImage(ImageIcon image) {
+        this.image = image;
+    }
+
+    // REQUIRES: The string must not be empty.
+    // MODIFIES: this
+    // EFFECTS: Add the image directory to this dinosaur's image.
+    public void addImageDirectory(String directory) {
+        this.imageDirectory = directory;
     }
 
     // REQUIRES: The dinosaur must exist in the index before called.
@@ -110,6 +140,15 @@ public class Dinosaur implements Writable {
         return era;
     }
 
+    //EFFECT: Getter for Image
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    public String getImageDirectory() {
+        return imageDirectory;
+    }
+
     //EFFECTS: Returns Dinosaur as a JSON Object
     @Override
     public JSONObject toJson() {
@@ -120,6 +159,7 @@ public class Dinosaur implements Writable {
         json.put("location", location);
         json.put("size", size);
         json.put("description", description);
+        json.put("image", imageDirectory);
         return json;
     }
 

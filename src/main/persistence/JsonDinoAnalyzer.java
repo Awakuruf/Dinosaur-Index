@@ -5,6 +5,7 @@ import model.DinosaurList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -59,8 +60,8 @@ public class JsonDinoAnalyzer {
 
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses Dinosaur from JSON object and adds it to workroom
+    // MODIFIES: DinosaurList
+    // EFFECTS: parses Dinosaur from JSON object and adds it to DinosaurList
     private void addDinosaur(DinosaurList dl, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String diet = jsonObject.getString("diet");
@@ -68,6 +69,7 @@ public class JsonDinoAnalyzer {
         String location = jsonObject.getString("location");
         Integer size = jsonObject.getInt("size");
         String description = jsonObject.getString("description");
+        String image = jsonObject.getString("image");
         Dinosaur dinosaur = new Dinosaur(name);
         dl.addToCatalogueOfDino(dinosaur);
         dinosaur.addDiet(diet);
@@ -75,6 +77,7 @@ public class JsonDinoAnalyzer {
         dinosaur.addLocationFound(location);
         dinosaur.addSize(size);
         dinosaur.addDescription(description);
+        dinosaur.addImageDirectory(image);
     }
 
 

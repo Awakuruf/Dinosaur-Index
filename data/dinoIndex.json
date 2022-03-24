@@ -1,7 +1,8 @@
 {
-    "name": "Default DinoIndex",
+    "name": "kappa",
     "dinosaurList": [
         {
+            "image": "./images/trex.jpeg",
             "size": 12,
             "era": "Cretaceous",
             "name": "Tyrannosaurus",
@@ -10,6 +11,7 @@
             "diet": "Carnivore"
         },
         {
+            "image": "./images/trike.jpg",
             "size": 9,
             "era": "Cretaceous",
             "name": "Triceratops",
@@ -18,30 +20,7 @@
             "diet": "Herbivore"
         },
         {
-            "size": 3,
-            "era": "Triassic",
-            "name": "Eoraptor",
-            "description": "First ever raptor to exist on earth.",
-            "location": "Asia",
-            "diet": "Omnivore"
-        },
-        {
-            "size": 10,
-            "era": "Jurassic",
-            "name": "Stegosaurus",
-            "description": "Spiked dinosaur, existed in Jurassic Period",
-            "location": "Africa",
-            "diet": "Herbivore"
-        },
-        {
-            "size": 14,
-            "era": "Cretaceous",
-            "name": "Giganotosaurus",
-            "description": "Biggest type of Tyranosaur",
-            "location": "South America",
-            "diet": "Carnivore"
-        },
-        {
+            "image": "./images/coel.jpg",
             "size": 2,
             "era": "Triassic",
             "name": "Coelophysis",
@@ -50,28 +29,40 @@
             "diet": "Omnivore"
         },
         {
-            "size": 9,
-            "era": "Cretaceous",
-            "name": "Ankylosaurus",
-            "description": "Hammered tailed lizard.",
-            "location": "North America",
+            "image": "./images/stego.jpeg",
+            "size": 10,
+            "era": "Jurassic",
+            "name": "Stegosaurus",
+            "description": "Spiked dinosaur, existed in Jurassic Period",
+            "location": "Africa",
             "diet": "Herbivore"
         },
         {
-            "size": 0,
-            "era": "No Mesozoic Era inputted",
-            "name": "Velociraptor",
-            "description": "No Description inputted",
-            "location": "No Location of Discovery inputted",
+            "image": "./images/eoraptor.jpeg",
+            "size": 3,
+            "era": "Triassic",
+            "name": "Eoraptor",
+            "description": "First ever raptor to exist on earth.",
+            "location": "Asia",
+            "diet": "Omnivore"
+        },
+        {
+            "image": "./images/giga.jpeg",
+            "size": 14,
+            "era": "Cretaceous",
+            "name": "Giganotosaurus",
+            "description": "Biggest type of Tyranosaur",
+            "location": "South America",
             "diet": "Carnivore"
         },
         {
-            "size": 10,
+            "image": "./images/unknown dino.jpg",
+            "size": 0,
             "era": "No Mesozoic Era inputted",
-            "name": "Trex",
+            "name": "Dodo",
             "description": "No Description inputted",
             "location": "No Location of Discovery inputted",
-            "diet": "No Diet inputted"
+            "diet": "Herbivore"
         }
     ]
 }

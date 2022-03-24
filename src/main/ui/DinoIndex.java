@@ -6,20 +6,10 @@ import persistence.JsonDinoWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DinoIndex {
-
-    private Dinosaur tyrano;
-    private Dinosaur trike;
-    private Dinosaur stego;
-    private Dinosaur eoraptor;
-    private Dinosaur giga;
-    private Dinosaur coel;
-
-    private DinosaurList catalogueDinosaur;
+public class DinoIndex extends DefaultDinos {
 
     private Dinosaur discoveredDinosaur;
     private Scanner input;
@@ -31,7 +21,6 @@ public class DinoIndex {
     // EFFECTS: Starts up the index
     public DinoIndex() {
         input = new Scanner(System.in);
-        catalogueDinosaur = new DinosaurList("Default DinoIndex");
         jsonDinoAnalyzer = new JsonDinoAnalyzer(JSON_STORE);
         jsonDinoWriter = new JsonDinoWriter(JSON_STORE);
         openDinoIndex();
@@ -43,7 +32,7 @@ public class DinoIndex {
         boolean remainOpen = true;
         String press = null;
 
-        makeIndex();
+        setDefaultDinoIndex();
 
         while (remainOpen) {
             openTableOfContents();
@@ -60,104 +49,6 @@ public class DinoIndex {
         System.out.println("\nClosing Prehistoric earth...");
 
     }
-
-    // MODIFIES: this
-    // EFFECTS: Inputs the first set of dinosaurs are present in the index.
-    private void makeIndex() {
-        makeDinosaur1();
-        catalogueDinosaur.addToCatalogueOfDino(tyrano);
-        makeDinosaurs2();
-        catalogueDinosaur.addToCatalogueOfDino(trike);
-        makeDinosaurs3();
-        catalogueDinosaur.addToCatalogueOfDino(eoraptor);
-        makeDinosaurs4();
-        catalogueDinosaur.addToCatalogueOfDino(stego);
-        makeDinosaurs5();
-        catalogueDinosaur.addToCatalogueOfDino(giga);
-        makeDinosaurs6();
-        catalogueDinosaur.addToCatalogueOfDino(coel);
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the first embedded dinosaur that represent each section of index.
-    private void makeDinosaur1() {
-        tyrano = new Dinosaur("Tyrannosaurus");
-        tyrano.addLocationFound("North America");
-        tyrano.addDescription("Tyrant King Lizard");
-        tyrano.addSize(12);
-        tyrano.addDiet("Carnivore");
-        tyrano.addEra("Cretaceous");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the second embedded dinosaur that represent each section of index.
-    private void makeDinosaurs2() {
-        trike = new Dinosaur("Triceratops");
-        trike.addEra("Cretaceous");
-        trike.addSize(9);
-        trike.addDescription("Three Horned Lizard");
-        trike.addLocationFound("North America");
-        trike.addDiet("Herbivore");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the third embedded dinosaur that represent each section of index.
-    private void makeDinosaurs3() {
-        eoraptor = new Dinosaur("Eoraptor");
-        eoraptor.addEra("Triassic");
-        eoraptor.addSize(3);
-        eoraptor.addDescription("First ever raptor to exist on earth.");
-        eoraptor.addLocationFound("Asia");
-        eoraptor.addDiet("Omnivore");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the fourth embedded dinosaur that represent each section of index.
-    private void makeDinosaurs4() {
-        stego = new Dinosaur("Stegosaurus");
-        stego.addEra("Jurassic");
-        stego.addSize(10);
-        stego.addDescription("Spiked dinosaur, existed in Jurassic Period");
-        stego.addLocationFound("Africa");
-        stego.addDiet("Herbivore");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the fifth embedded dinosaur that represent each section of index.
-    private void makeDinosaurs5() {
-        giga = new Dinosaur("Giganotosaurus");
-        giga.addEra("Cretaceous");
-        giga.addSize(14);
-        giga.addDescription("Biggest type of Tyranosaur");
-        giga.addLocationFound("South America");
-        giga.addDiet("Carnivore");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates the sixth embedded dinosaur that represent each section of index.
-    private void makeDinosaurs6() {
-        coel = new Dinosaur("Coelophysis");
-        coel.addEra("Triassic");
-        coel.addSize(2);
-        coel.addDescription("The first ever living Dinosaur dated back 1000 million years ago.");
-        coel.addLocationFound("Africa // North America");
-        coel.addDiet("Omnivore");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
-    }
-
 
     // EFFECTS: Open the table of contents to choose from.
     private void openTableOfContents() {
@@ -199,10 +90,10 @@ public class DinoIndex {
     // MODIFIES: this
     // EFFECTS: Searches through the index by the given input name of dinosaur.
     private void searchByName() {
-        System.out.println("" + catalogueDinosaur.printDinoNames());
+        System.out.println("" + catalogue.printDinoNames());
         System.out.println("Enter the name of the dinosaur: ");
         String name = input.next();
-        catalogueDinosaur.filterDinoInfo(name);
+        catalogue.filterDinoInfo(name);
     }
 
     // MODIFIES: this
@@ -211,10 +102,10 @@ public class DinoIndex {
         System.out.println("Enter either 'North America' 'South America' 'Africa' 'Asia' or 'Europe': ");
         String location = input.next();
 
-        List<Dinosaur> withLocation = catalogueDinosaur.filterByLocation(location);
+        List<Dinosaur> withLocation = catalogue.filterByLocation(location);
 
         System.out.println("The Dinosaurs discover in this location are: "
-                + catalogueDinosaur.printFilteredNames(withLocation));
+                + catalogue.printFilteredNames(withLocation));
     }
 
     // MODIFIES: this
@@ -223,8 +114,8 @@ public class DinoIndex {
         System.out.println("Enter either 'Triassic' 'Jurassic' or 'Cretaceous': ");
         String era = input.next();
 
-        List<Dinosaur> withEra = catalogueDinosaur.filterByEra(era);
-        System.out.println("The Dinosaurs with this era are: " + catalogueDinosaur.printFilteredNames(withEra));
+        List<Dinosaur> withEra = catalogue.filterByEra(era);
+        System.out.println("The Dinosaurs with this era are: " + catalogue.printFilteredNames(withEra));
     }
 
 
@@ -234,8 +125,8 @@ public class DinoIndex {
         System.out.println("Enter either 'Herbivore' 'Carnivore' or 'Omnivore': ");
         String diet = input.next();
 
-        List<Dinosaur> withDiet = catalogueDinosaur.filterByDiet(diet);
-        System.out.println("The Dinosaurs with this diet are: " + catalogueDinosaur.printFilteredNames(withDiet));
+        List<Dinosaur> withDiet = catalogue.filterByDiet(diet);
+        System.out.println("The Dinosaurs with this diet are: " + catalogue.printFilteredNames(withDiet));
     }
 
 
@@ -246,7 +137,7 @@ public class DinoIndex {
         System.out.println("Enter the name of the newly discovered Dinosaur: ");
         String name = input.next();
         discoveredDinosaur = new Dinosaur(name);
-        catalogueDinosaur.addToCatalogueOfDino(discoveredDinosaur);
+        catalogue.addToCatalogueOfDino(discoveredDinosaur);
         System.out.println("Description, Size, Location of Discovery, Diet, Mesozoic Period:");
         System.out.println("What information would you like to add?");
         String information = input.next();
@@ -272,7 +163,7 @@ public class DinoIndex {
     private void updateNewDino() {
         System.out.println("Enter the name of the existing discovered Dinosaur: ");
         String name = input.next();
-        for (Dinosaur d : catalogueDinosaur.returnCatalogueOfDinosaur()) {
+        for (Dinosaur d : catalogue.returnCatalogueOfDinosaur()) {
             if (name.equals(d.getName())) {
                 System.out.println("Description, Size, Location of Discovery, Diet, Mesozoic Period:");
                 System.out.println("What information would you like to add?");
@@ -378,9 +269,9 @@ public class DinoIndex {
     private void saveDinoIndex() {
         try {
             jsonDinoWriter.open();
-            jsonDinoWriter.write(catalogueDinosaur);
+            jsonDinoWriter.write(catalogue);
             jsonDinoWriter.close();
-            System.out.println("Saved " + catalogueDinosaur.getName() + " to " + JSON_STORE);
+            System.out.println("Saved " + catalogue.getName() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -390,8 +281,8 @@ public class DinoIndex {
     // EFFECTS: loads DinoIndex from file
     private void loadDinoIndex() {
         try {
-            catalogueDinosaur = jsonDinoAnalyzer.analyze();
-            System.out.println("Loaded " + catalogueDinosaur.getName() + " from " + JSON_STORE);
+            catalogue = jsonDinoAnalyzer.analyze();
+            System.out.println("Loaded " + catalogue.getName() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
