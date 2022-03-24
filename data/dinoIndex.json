@@ -63,6 +63,15 @@
             "description": "No Description inputted",
             "location": "No Location of Discovery inputted",
             "diet": "Herbivore"
+        },
+        {
+            "image": "./images/unknown dino.jpg",
+            "size": 3,
+            "era": "No Mesozoic Era inputted",
+            "name": "Velociraptor",
+            "description": "No Description inputted",
+            "location": "No Location of Discovery inputted",
+            "diet": "No Diet inputted"
         }
     ]
 }

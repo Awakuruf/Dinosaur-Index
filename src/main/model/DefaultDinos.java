@@ -13,7 +13,6 @@ public class DefaultDinos {
     private Dinosaur coel;
 
     public DefaultDinos() {
-        catalogue = new DinosaurList("Default Dinosaurs");
     }
 
     // MODIFIES: this

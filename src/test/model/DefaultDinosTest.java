@@ -28,5 +28,4 @@ public class DefaultDinosTest {
     @Test
     void testInitialise() {
         testDino.setDefaultDinoIndex();}
-
 }

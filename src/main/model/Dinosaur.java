@@ -32,9 +32,7 @@ public class Dinosaur implements Writable {
         diet = "No Diet inputted";
         location = "No Location of Discovery inputted";
         era = "No Mesozoic Era inputted";
-        if (imageDirectory == null) {
-            imageDirectory = "./images/unknown dino.jpg";
-        }
+        imageDirectory = "./images/unknown dino.jpg";
         image = new ImageIcon(imageDirectory);
         Image tempImage = image.getImage();
         Image newImage = tempImage.getScaledInstance(125, 125, java.awt.Image.SCALE_SMOOTH);
