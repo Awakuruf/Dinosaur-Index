@@ -8,8 +8,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//TODO Ask about Overriding and Overloading Slide
-
 public class DinosaurListTest {
     private DinosaurList testDinoCatalogue;
     private Dinosaur testDinosaur;

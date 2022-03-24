@@ -3,14 +3,18 @@ package model;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class DefaultDinos {
-    protected static DinosaurList catalogue = new DinosaurList("kappa");
+public class DefaultDinos {
+    protected static DinosaurList catalogue = new DinosaurList("Default Dinosaurs");
     private Dinosaur tyrano;
     private Dinosaur trike;
     private Dinosaur stego;
     private Dinosaur eoraptor;
     private Dinosaur giga;
     private Dinosaur coel;
+
+    public DefaultDinos() {
+        catalogue = new DinosaurList("Default Dinosaurs");
+    }
 
     // MODIFIES: this
     // EFFECTS: Creates the first embedded dinosaur that represent each section of index.

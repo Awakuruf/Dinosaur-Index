@@ -3,6 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DinosaurTest {
 
     private Dinosaur testDinosaur;
+    private ImageIcon image;
 
     @BeforeEach
     void runBefore() {
@@ -62,6 +64,22 @@ class DinosaurTest {
         testDinosaur.returnDinosaurPage();
         assertEquals("Albertosaurus", testDinosaur.returnDinosaurPage());
     }
+
+    @Test
+    void testImageFunctions() {
+        testDinosaur.addImageDirectory("./images/giga.jpeg");
+        testDinosaur.addImage(testDinosaur.getImageDirectory());
+        testDinosaur.pasteImage(image);
+        assertEquals("./images/giga.jpeg", testDinosaur.getImageDirectory());
+        assertEquals(image, testDinosaur.getImage());
+        image = new ImageIcon("./images/giga.jpeg");
+        testDinosaur.addImage("./images/giga.jpeg");
+        assertEquals("./images/giga.jpeg", testDinosaur.getImageDirectory());
+    }
+
+
+
+
 
 
 
