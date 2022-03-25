@@ -77,7 +77,7 @@ public class Dinosaur implements Writable {
 
     // REQUIRES: The string must not be empty.
     // MODIFIES: this
-    // EFFECTS: Add the image direcotry of the dinosaur.
+    // EFFECTS: Add the image directory of the dinosaur.
     public void addImage(String imageLink) {
         this.image = new ImageIcon(imageLink);
     }
