@@ -93,6 +93,8 @@ public class DefaultDinos {
         coel.addImage(coel.getImageDirectory());
     }
 
+    // MODIFIES: this
+    // EFFECTS: Initialises the default Index with the default dinosaurs in it.
     protected void setDefaultDinoIndex() {
         makeDinosaur1();
         makeDinosaurs2();

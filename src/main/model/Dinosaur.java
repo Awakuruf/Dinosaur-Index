@@ -143,6 +143,7 @@ public class Dinosaur implements Writable {
         return image;
     }
 
+    //EFFECT: Getter for Image Directory.
     public String getImageDirectory() {
         return imageDirectory;
     }
