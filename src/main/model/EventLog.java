@@ -53,7 +53,6 @@ public class EventLog implements Iterable<Event> {
      */
     public void clear() {
         events.clear();
-        logEvent(new Event("Event log cleared."));
     }
 
 
