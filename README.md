@@ -51,14 +51,14 @@ User Stories
 Phase 4: Task 2
 -
 ------ LOGGED EVENTS -------
-- Initialized the Default DinoIndex!
-- Viewed the Dino Page of: Tyrannosaurus
-- New Dinosaur discovered: Dodo!
-- Added Dodo to the Index!
-- Added Carnivore as a type of diet for Dodo
-- DinoIndex saved!
-- Added 2m as a size for Dodo
-- Viewed the Dino Page of: Dodo
+- Initialized the Default DinoIndex! (Opening GUI)
+- Viewed the Dino Page of: Tyrannosaurus (Viewing the Dinosaur Page)
+- New Dinosaur discovered: Dodo! (Adding new Dinosaur)
+- Added Dodo to the Index! (Adding the dinosaur into the DinoIndex)
+- Added Carnivore as a type of diet for Dodo (Adding information to Dinosaurs)
+- DinoIndex saved! (Saving the DinoIndex)
+- Added 2m as a size for Dodo (Adding different type of information to Dinosaur)
+- Viewed the Dino Page of: Dodo (Viewing the Dinosaur page for different type of Dinosaur)
 
 Phase 4 Task 3
 - 
