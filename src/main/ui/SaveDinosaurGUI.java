@@ -1,6 +1,8 @@
 package ui;
 
 import model.DefaultDinos;
+import model.Event;
+import model.EventLog;
 import persistence.JsonDinoAnalyzer;
 import persistence.JsonDinoWriter;
 
@@ -55,6 +57,7 @@ public class SaveDinosaurGUI extends DefaultDinos {
         try {
             jsonDinoWriter.open();
             jsonDinoWriter.write(catalogue);
+            EventLog.getInstance().logEvent(new Event("DinoIndex saved!"));
             jsonDinoWriter.close();
         } catch (FileNotFoundException e) {
             errorPanel = new JPanel();

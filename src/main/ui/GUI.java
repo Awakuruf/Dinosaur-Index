@@ -1,6 +1,8 @@
 package ui;
 
 import model.DefaultDinos;
+import model.Event;
+import model.EventLog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +19,7 @@ public class GUI extends DefaultDinos implements ActionListener {
     private JButton loadDinosaur;
     private JButton saveDinosaur;
     private JButton updateDinosaur;
+    private JButton exit;
 
     private ImageIcon logo;
 
@@ -30,6 +33,7 @@ public class GUI extends DefaultDinos implements ActionListener {
         updateDinosaur.addActionListener(this);
         saveDinosaur.addActionListener(this);
         loadDinosaur.addActionListener(this);
+        exit.addActionListener(this);
 
 
         panel = new JPanel();
@@ -60,6 +64,7 @@ public class GUI extends DefaultDinos implements ActionListener {
         updateDinosaur = new JButton("Update information on existing Dinosaur!");
         saveDinosaur = new JButton("Save your DinoIndex!");
         loadDinosaur = new JButton("Load your saved DinoIndex!");
+        exit = new JButton("Close DinoIndex!");
     }
 
     // EFFECTS: Adds the labels and buttons to the Welcome Panel.
@@ -69,6 +74,7 @@ public class GUI extends DefaultDinos implements ActionListener {
         panel.add(updateDinosaur);
         panel.add(saveDinosaur);
         panel.add(loadDinosaur);
+        panel.add(exit);
     }
 
     // EFFECTS: Crates directory of methods that each buttons takes action on.
@@ -86,6 +92,12 @@ public class GUI extends DefaultDinos implements ActionListener {
             new SaveDinosaurGUI();
         } else if (e.getSource() == loadDinosaur) {
             new LoadDinosaurGUI();
+        } else if (e.getSource() == exit) {
+            System.out.println("------ LOGGED EVENTS -------");
+            for (Event event : EventLog.getInstance()) {
+                System.out.println(event.getDescription());
+            }
+            System.exit(0);
         }
     }
 }

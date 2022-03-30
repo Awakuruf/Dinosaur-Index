@@ -27,6 +27,7 @@ public class DinosaurList implements Writable {
     // EFFECTS: Adds the inputted dinosaur to the catalogue of dinosaurs.
     public void addToCatalogueOfDino(Dinosaur dinosaur) {
         listOfDino.add(dinosaur);
+        EventLog.getInstance().logEvent(new Event("Added " + dinosaur.getName() + " to the Index!"));
     }
 
     // REQUIRES: The string must not be empty.
@@ -39,6 +40,7 @@ public class DinosaurList implements Writable {
                 withDiet.add(d);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Filtered Dinosaurs by Diet!"));
         return withDiet;
     }
 
@@ -52,6 +54,7 @@ public class DinosaurList implements Writable {
                 withEra.add(d);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Filtered Dinosaurs by Mesozoic Era!"));
         return withEra;
     }
 
@@ -65,6 +68,7 @@ public class DinosaurList implements Writable {
                 withLocation.add(d);
             }
         }
+        EventLog.getInstance().logEvent(new Event("Filtered Dinosaurs by Location!"));
         return withLocation;
     }
 

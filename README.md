@@ -47,3 +47,20 @@ User Stories
 - As a user I want to view all the added information of this Dinosaur.
 - As a user I want to save the dinosaur I just added in the DinoIndex.
 - As a user I want to load the DinoIndex with the previously saved dinosaur in it.
+
+Phase 4: Task 2
+-
+------ LOGGED EVENTS -------
+- Initialized the Default DinoIndex!
+- Viewed the Dino Page of: Tyrannosaurus
+- New Dinosaur discovered: Dodo!
+- Added Dodo to the Index!
+- Added Carnivore as a type of diet for Dodo
+- DinoIndex saved!
+- Added 2m as a size for Dodo
+- Viewed the Dino Page of: Dodo
+
+Phase 4 Task 3
+- 
+- UpdateDinosaurGUI and DiscoverDinosaurGUI could've extended an abstract class called "EditInformationGUI" since they had a very similar methods within each class.
+

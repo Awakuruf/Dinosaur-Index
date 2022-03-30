@@ -1,6 +1,8 @@
 package persistence;
 
 import model.DinosaurList;
+import model.Event;
+import model.EventLog;
 import org.json.JSONObject;
 
 import java.io.File;

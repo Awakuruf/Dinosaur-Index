@@ -1,6 +1,8 @@
 package ui;
 
 import model.DefaultDinos;
+import model.Event;
+import model.EventLog;
 import persistence.JsonDinoAnalyzer;
 
 import javax.swing.*;
@@ -51,6 +53,7 @@ public class LoadDinosaurGUI extends DefaultDinos {
     public void loadDinoIndex() {
         try {
             catalogue = jsonDinoAnalyzer.analyze();
+            EventLog.getInstance().logEvent(new Event("DinoIndex Loaded!"));
         } catch (IOException e) {
             errorPanel = new JPanel();
             errorMessage = new JLabel("Error: Unable to load your DinoIndex!");

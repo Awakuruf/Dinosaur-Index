@@ -59,10 +59,10 @@
             "image": "./images/unknown dino.jpg",
             "size": 0,
             "era": "No Mesozoic Era inputted",
-            "name": "hi",
-            "description": "asinbfa",
+            "name": "Dodo",
+            "description": "No Description inputted",
             "location": "No Location of Discovery inputted",
-            "diet": "No Diet inputted"
+            "diet": "Carnivore"
         }
     ]
 }

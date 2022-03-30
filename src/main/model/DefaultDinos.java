@@ -26,6 +26,7 @@ public class DefaultDinos {
         tyrano.addEra("Cretaceous");
         tyrano.addImageDirectory("./images/trex.jpeg");
         tyrano.addImage(tyrano.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -39,6 +40,7 @@ public class DefaultDinos {
         trike.addDiet("Herbivore");
         trike.addImageDirectory("./images/trike.jpg");
         trike.addImage(trike.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -52,6 +54,7 @@ public class DefaultDinos {
         eoraptor.addDiet("Omnivore");
         eoraptor.addImageDirectory("./images/eoraptor.jpeg");
         eoraptor.addImage(eoraptor.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -65,6 +68,7 @@ public class DefaultDinos {
         stego.addDiet("Herbivore");
         stego.addImageDirectory("./images/stego.jpeg");
         stego.addImage(stego.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -78,6 +82,7 @@ public class DefaultDinos {
         giga.addDiet("Carnivore");
         giga.addImageDirectory("./images/giga.jpeg");
         giga.addImage(giga.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -91,6 +96,7 @@ public class DefaultDinos {
         coel.addDiet("Omnivore");
         coel.addImageDirectory("./images/coel.jpg");
         coel.addImage(coel.getImageDirectory());
+        EventLog.getInstance().clear();
     }
 
     // MODIFIES: this
@@ -108,6 +114,8 @@ public class DefaultDinos {
         catalogue.addToCatalogueOfDino(stego);
         catalogue.addToCatalogueOfDino(eoraptor);
         catalogue.addToCatalogueOfDino(giga);
+        EventLog.getInstance().clear();
+        EventLog.getInstance().logEvent(new Event("Initialized the Default DinoIndex!"));
     }
 
 

@@ -41,6 +41,9 @@ public class DinoIndex extends DefaultDinos {
 
             if (press.equals("c")) {
                 remainOpen = false;
+                for (Event e : EventLog.getInstance()) {
+                    System.out.println(e.getDescription());
+                }
             } else {
                 selectPage(press);
             }
@@ -183,7 +186,6 @@ public class DinoIndex extends DefaultDinos {
                 }
             }
         }
-        //TODO System.out.println("No existing Dinosaur...");
     }
 
     // MODIFIES: this

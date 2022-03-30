@@ -2,6 +2,8 @@ package persistence;
 
 import model.Dinosaur;
 import model.DinosaurList;
+import model.Event;
+import model.EventLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
